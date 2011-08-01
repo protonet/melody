@@ -1,8 +1,6 @@
 class Tune < Padrino::Application
   register Padrino::Rendering
-  register Padrino::Mailer
   register Padrino::Helpers
-  register CompassInitializer
 
 
   enable :sessions

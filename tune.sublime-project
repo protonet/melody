@@ -1,0 +1,357 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"op",
+				"options"
+			],
+			[
+				"use",
+				"user_signed_in"
+			],
+			[
+				"day",
+				"day_thing"
+			],
+			[
+				"lin",
+				"linp: link_to (nested path)"
+			],
+			[
+				"ac",
+				"action"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0,
+		"selected_items":
+		[
+		],
+		"width": 0
+	},
+	"console":
+	{
+		"height": 0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/philip/Projects/five-things/config/schedule.rb",
+		"/home/philip/Projects/deploy/lib/deploy/utils/support.rb",
+		"/home/philip/Projects/five-things/deploy/recipes/five_things_deploy.rb",
+		"/home/philip/Projects/five-things/app/models/day_thing.rb",
+		"/home/philip/Projects/five-things/app/controllers/day_things_controller.rb",
+		"/home/philip/Projects/five-things/app/mailers/thing_mailer.rb",
+		"/home/philip/Projects/five-things/app/views/thing_mailer/reminder_email.text.haml",
+		"/home/philip/Projects/five-things/app/views/thing_mailer/reminder_email.txt.haml",
+		"/home/philip/Projects/five-things/app/views/thing_mailer/reminder_email.txt.erb",
+		"/home/philip/Projects/five-things/TODO.md",
+		"/home/philip/Projects/five-things/app/controllers/things_controller.rb",
+		"/home/philip/Projects/five-things/app/models/thing.rb",
+		"/home/philip/Projects/five-things/app/views/things/_form.html.haml",
+		"/home/philip/Projects/five-things/public/javascripts/application.js",
+		"/home/philip/Projects/five-things/app/models/user.rb",
+		"/home/philip/Projects/five-things/config/environments/development.rb",
+		"/home/philip/Projects/five-things/Gemfile",
+		"/home/philip/Projects/five-things/config/application.rb",
+		"/home/philip/.config/sublime-text-2/Packages/User/Global.sublime-settings",
+		"/home/philip/.config/sublime-text-2/Packages/User/Base File.sublime-settings",
+		"/home/philip/.config/sublime-text-2/Packages/User/Distraction Free.sublime-settings",
+		"/home/philip/.config/sublime-text-2/Packages/User/Ruby.sublime-settings",
+		"/home/philip/Projects/five-things/app/models/tag.rb",
+		"/home/philip/Projects/five-things/config/routes.rb",
+		"/home/philip/Projects/five-things/app/views/things/index.html.haml",
+		"/home/philip/Projects/five-things/app/views/shared/_all_things.html.haml",
+		"/home/philip/Projects/five-things/app/controllers/application_controller.rb",
+		"/home/philip/Projects/five-things/app/helpers/application_helper.rb",
+		"/home/philip/Projects/five-things/app/views/shared/_menu.html.haml",
+		"/home/philip/Projects/five-things/app/stylesheets/application.sass",
+		"/home/philip/Projects/five-things/app/helpers/things_helper.rb",
+		"/home/philip/Projects/five-things/.gitignore",
+		"/home/philip/Projects/five-things/app/views/layouts/application.html.haml",
+		"/home/philip/Projects/five-things/config.ru",
+		"/home/philip/Projects/five-things/config/environments/production.rb",
+		"/home/philip/Projects/five-things/app/views/shared/_flash.html.haml",
+		"/home/philip/Projects/deploy/lib/deploy/config.rb",
+		"/home/philip/Projects/deploy/lib/deploy/recipes/rails_data_mapper.rb",
+		"/home/philip/Projects/deploy/spec/recipes_spec.rb",
+		"/home/philip/Projects/deploy/spec/deploy_spec.rb",
+		"/home/philip/Projects/deploy/deploy.gemspec",
+		"/home/philip/Projects/deploy/Gemfile",
+		"/home/philip/Projects/deploy/Rakefile",
+		"/home/philip/Projects/deploy/README.md",
+		"/home/philip/Projects/deploy/lib/deploy/recipes/common.rb",
+		"/home/philip/Projects/five-things-config/production.rb",
+		"/home/philip/Projects/deploy/bin/dep",
+		"/home/philip/Projects/deploy/lib/deploy/setup.rb",
+		"/home/philip/Projects/deploy/lib/deploy.rb",
+		"/home/philip/Projects/deploy/.rvmrc",
+		"/home/philip/Projects/deploy/.gitignore"
+	],
+	"find":
+	{
+		"height": 0
+	},
+	"find_in_files":
+	{
+		"height": 88,
+		"include_history":
+		[
+			""
+		],
+		"location_history":
+		[
+			"<open folders>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"pub",
+			"]",
+			"@things",
+			"redirect_to :controller => 'things', :action => 'index'",
+			"rvm",
+			"show_methods"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"visible",
+			"go_home"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer": false,
+		"whole_word": false,
+		"wrap": true
+	},
+	"folders":
+	{
+		"mount_points":
+		[
+			"/home/philip/Projects/tune"
+		]
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0
+	},
+	"input":
+	{
+		"height": 30
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0,
+			1
+		],
+		"rows":
+		[
+			0,
+			1
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0,
+		"selected_items":
+		[
+			[
+				"thing.r",
+				"app/models/thing.rb"
+			],
+			[
+				"use",
+				"app/models/user.rb"
+			],
+			[
+				"daythin",
+				"app/models/day_thing.rb"
+			],
+			[
+				"sch",
+				"config/schedule.rb"
+			],
+			[
+				"daything",
+				"app/models/day_thing.rb"
+			],
+			[
+				"remind",
+				"app/views/thing_mailer/reminder_email.txt.haml"
+			],
+			[
+				"thinr",
+				"app/mailers/thing_mailer.rb"
+			],
+			[
+				"deve",
+				"config/environments/development.rb"
+			],
+			[
+				"daythi",
+				"app/models/day_thing.rb"
+			],
+			[
+				"user",
+				"app/models/user.rb"
+			],
+			[
+				"applic",
+				"public/javascripts/application.js"
+			],
+			[
+				"_form.htm",
+				"app/views/things/_form.html.haml"
+			],
+			[
+				"thingrb",
+				"app/models/thing.rb"
+			],
+			[
+				"thingc",
+				"app/controllers/things_controller.rb"
+			],
+			[
+				"todo",
+				"TODO.md"
+			],
+			[
+				"thingscon",
+				"app/controllers/things_controller.rb"
+			],
+			[
+				"thing.rb",
+				"app/models/thing.rb"
+			],
+			[
+				"applc",
+				"app/controllers/application_controller.rb"
+			],
+			[
+				"allthing",
+				"app/views/shared/_all_things.html.haml"
+			],
+			[
+				"index",
+				"app/views/things/index.html.haml"
+			],
+			[
+				"daythingcon",
+				"app/controllers/day_things_controller.rb"
+			],
+			[
+				"thingsco",
+				"app/controllers/things_controller.rb"
+			],
+			[
+				"men",
+				"app/views/shared/_menu.html.haml"
+			],
+			[
+				"applicjs",
+				"public/javascripts/application.js"
+			],
+			[
+				"tod",
+				"TODO.md"
+			],
+			[
+				"user.rb",
+				"app/models/user.rb"
+			],
+			[
+				"applicasass",
+				"app/stylesheets/application.sass"
+			],
+			[
+				"thingcon",
+				"app/controllers/things_controller.rb"
+			],
+			[
+				"route",
+				"config/routes.rb"
+			],
+			[
+				"appsass",
+				"app/stylesheets/application.sass"
+			],
+			[
+				"develop",
+				"config/environments/development.rb"
+			],
+			[
+				"product",
+				"config/environments/production.rb"
+			],
+			[
+				"thinhel",
+				"app/helpers/things_helper.rb"
+			],
+			[
+				"commo",
+				"lib/deploy/recipes/common.rb"
+			]
+		],
+		"width": 0
+	},
+	"select_project":
+	{
+		"height": 0,
+		"selected_items":
+		[
+		],
+		"width": 0
+	},
+	"show_minimap": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 231,
+	"status_bar_visible": true
+}
