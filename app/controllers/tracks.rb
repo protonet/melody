@@ -1,17 +1,19 @@
-Tune.controllers :tracks do
+Melody.controllers :tracks do
 
-  # get :index, :map => "/foo/bar" do
-  #   session[:foo] = "bar"
-  #   render 'index'
-  # end
-
-  get :random do
-    session[:foo] = "bar"
-    render 'index'
+  get 'index' do
+    Track.index
   end
 
-  # get "/tracks", :with => :id do
-  #   "Hello world!"
-  # end
+  get 'cache' do
+    Track.cache
+  end
+
+  get :index, :with => :id do
+    send_file("#{PATH_PREFIX}#{file_path}/#{filename}",
+      :type        => 'text/plain',
+      :disposition => 'inline',
+      :filename    => File.basename(filename)
+    )
+  end
 
 end
