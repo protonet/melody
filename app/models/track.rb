@@ -2,21 +2,25 @@ class Track
   include DataMapper::Resource
 
   property :id,       Serial
-  proterty :filename, String
+  property :filename, String
 
   class << self
 
+    def index_and_cache
+      index
+      cache
+    end
+
     def index
       Track.all.destroy
-      files = `find /home/protonet/Media/Audio/Music -type f`.split
-      files.each { |file| Track.create :filename => file }
+      Dir[File.join("/home/likewise-open/XING/philip.maciver/Music", "**", "*.mp3")].each do |file|
+        Track.create :filename => file
+      end
     end
 
     def cache
-      File.open('', 'w') do |files|
-        Track.all do |track|
-          file.write
-        end
+      File.open('/tmp/tracks.json', 'w') do |file|
+        file.write Track.all.to_json
       end
     end
 

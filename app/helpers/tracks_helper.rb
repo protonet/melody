@@ -1,6 +1,6 @@
 # Helper methods defined here can be accessed in any controller or view in the application
 
-Tune.helpers do
+Melody.helpers do
   # def simple_helper_method
   #  ...
   # end

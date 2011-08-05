@@ -1,4 +1,4 @@
-class Tune < Padrino::Application
+class Melody < Padrino::Application
   register Padrino::Rendering
   register Padrino::Helpers
 
