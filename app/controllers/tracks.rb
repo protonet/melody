@@ -9,7 +9,9 @@ Melody.controllers :tracks do
   end
 
   get :index, :with => :id do
-    if (track = Track.get params[:id])
+    #id = params[:id].scan(/^(\d+).mp3$/).first.first.to_i
+    #puts "ID IS #{id}"
+    if (track = Track.get(params[:id]))
       send_file(track.filename,
         :type        => 'audio/mpeg',
         :disposition => 'inline',
