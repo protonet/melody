@@ -15,6 +15,9 @@ Bundler.require(:default, PADRINO_ENV)
 # Padrino::Logger::Config[:development] = { :log_level => :devel, :stream => :stdout }
 # Padrino::Logger.log_static = true
 #
+[:test,:development,:production].each do |env|
+  Padrino::Logger::Config[env][:stream] = :to_file
+end
 
 ##
 # Add your before load hooks here
@@ -28,5 +31,6 @@ end
 Padrino.after_load do
   DataMapper.finalize
 end
+
 
 Padrino.load!

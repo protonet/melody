@@ -13,13 +13,23 @@ class Track
 
     def index
       Track.all.destroy
-      Dir[File.join("/home/likewise-open/XING/philip.maciver/Music", "**", "*.mp3")].each do |file|
-        Track.create :filename => file
+      AppConfig.config[:index_dirs].each do |index_dir|
+
+        Dir[File.join(index_dir, "**", "*.mp3")].each do |file|
+          Track.create :filename => file
+        end
       end
     end
 
     def cache
-      File.open('/tmp/tracks.json', 'w') do |file|
+      tmp_dir = "#{Padrino.root}/tmp"
+
+      unless File.exist?(tmp_dir)
+        require 'fileutils'
+        FileUtils.mkdir_p tmp_dir
+      end
+
+      File.open("#{Padrino.root}/tmp/tracks.json", 'w') do |file|
         file.write Track.all.to_json
       end
     end
