@@ -8,6 +8,9 @@ Melody.controllers :tracks do
     Track.cache
   end
 
+  get '/philip' do
+  end
+
   get :index, :with => :id do
     #id = params[:id].scan(/^(\d+).mp3$/).first.first.to_i
     #puts "ID IS #{id}"
