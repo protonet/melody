@@ -15,8 +15,8 @@ class Track
       Track.all.destroy
       AppConfig.config[:index_dirs].each do |index_dir|
 
-        Dir[File.join(index_dir, "**", "*.mp3")].each do |file|
-          puts "Indexing #{file}"
+        Dir[File.join(index_dir, "**", "*.mp3")].each_with_index do |file, ind|
+          puts "#{ind + 1}. Indexing #{file}"
           Track.create :filename => file
         end
       end
