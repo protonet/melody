@@ -4,14 +4,6 @@ class Melody < Padrino::Application
 
   enable :sessions
 
-  get "/reindex" do
-    Track.index
-  end
-
-  get '/cache' do
-    Track.cache
-  end
-
   get '/listing' do
     filename = "#{Padrino.root}/tmp/tracks.json"
     Track.cache unless File.exists?(filename)
