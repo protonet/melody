@@ -27,6 +27,63 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/home/philip/Projects/melody/app/app.rb",
+			"settings":
+			{
+				"buffer_size": 798,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/philip/Projects/melody/lib/app_config.rb",
+			"settings":
+			{
+				"buffer_size": 125,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/philip/Projects/melody/config/apps.rb",
+			"settings":
+			{
+				"buffer_size": 1340,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/philip/Projects/melody/config/boot.rb",
+			"settings":
+			{
+				"buffer_size": 790,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "class Track\n  include DataMapper::Resource\n\n  property :id,       Serial\n  property :filename, String\n\n  class << self\n\n    def index_and_cache\n      index\n      cache\n    end\n\n    def index\n      Track.all.destroy\n      AppConfig.config[:index_dirs].each do |index_dir|\n\n        Dir[File.join(index_dir, \"**\", \"*.mp3\")].each_with_index do |file, ind|\n          puts \"#{ind + 1}. Indexing #{file}\"\n          Track.create :filename => file\n        end\n      end\n    end\n\n    def cache\n      tmp_dir = \"#{Padrino.root}/tmp\"\n\n      unless File.exist?(tmp_dir)\n        require 'fileutils'\n        FileUtils.mkdir_p tmp_dir\n      end\n\n      File.open(\"#{Padrino.root}/tmp/tracks.json\", 'w') do |file|\n        file.write Track.all.to_json\n      end\n    end\n\n  end\n\nend\n",
+			"file": "/home/philip/Projects/melody/app/models/track.rb",
+			"settings":
+			{
+				"buffer_size": 763,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/philip/Projects/melody/.gitignore",
+			"settings":
+			{
+				"buffer_size": 91,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/philip/Projects/melody/tasks/melody.rake",
+			"settings":
+			{
+				"buffer_size": 204,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -51,6 +108,10 @@
 	},
 	"file_history":
 	[
+		"/home/philip/Projects/vagabundo-mundial/Rakefile",
+		"/home/philip/Projects/melody/tmp/tracks.json",
+		"/home/philip/Projects/melody/app/controllers/tracks.rb",
+		"/home/philip/Projects/snappy/Gemfile",
 		"/home/philip/Projects/five-things/config/schedule.rb",
 		"/home/philip/Projects/deploy/lib/deploy/utils/support.rb",
 		"/home/philip/Projects/five-things/deploy/recipes/five_things_deploy.rb",
@@ -156,8 +217,195 @@
 	"groups":
 	[
 		{
+			"selected": 4,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/home/philip/Projects/melody/app/app.rb",
+					"settings":
+					{
+						"buffer_size": 798,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								115,
+								115
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/philip/Projects/melody/lib/app_config.rb",
+					"settings":
+					{
+						"buffer_size": 125,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								72,
+								72
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/philip/Projects/melody/config/apps.rb",
+					"settings":
+					{
+						"buffer_size": 1340,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/philip/Projects/melody/config/boot.rb",
+					"settings":
+					{
+						"buffer_size": 790,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								519,
+								519
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/philip/Projects/melody/app/models/track.rb",
+					"settings":
+					{
+						"buffer_size": 763,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								618,
+								618
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/philip/Projects/melody/.gitignore",
+					"settings":
+					{
+						"buffer_size": 91,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								91,
+								91
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/philip/Projects/melody/tasks/melody.rake",
+					"settings":
+					{
+						"buffer_size": 204,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								200,
+								200
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -202,6 +450,14 @@
 		"height": 0,
 		"selected_items":
 		[
+			[
+				"giti",
+				".gitignore"
+			],
+			[
+				"track",
+				"app/models/track.rb"
+			],
 			[
 				"applicon",
 				"app/controllers/application_controller.rb"
@@ -364,6 +620,6 @@
 	"show_minimap": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 231,
+	"side_bar_width": 304,
 	"status_bar_visible": true
 }

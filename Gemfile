@@ -1,7 +1,10 @@
 source :rubygems
 
+gem 'sinatra', :git => "git://github.com/sinatra/sinatra.git"
+
 # Server requirements
 gem 'passenger'
+gem 'thin'
 
 # Project requirements
 gem 'rake'
@@ -16,8 +19,8 @@ gem 'dm-constraints'
 gem 'dm-aggregates'
 gem 'dm-core'
 gem 'dm-serializer'
+gem 'data_mapper'
 gem 'haml'
-gem 'sunspot'
 
 # Test requirements
 group :test do
@@ -25,7 +28,3 @@ group :test do
   gem 'bacon'
   gem 'rack-test', :require => "rack/test"
 end
-
-# Padrino
-gem 'padrino', '0.10.0'
-# Padrino EDGE
