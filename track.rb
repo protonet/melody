@@ -14,13 +14,13 @@ class Track
     def index
       Track.all.destroy
       APP_CONFIG[:index_dirs].each do |index_dir|
-        begin
-          Dir[File.join(index_dir, "**", "*.mp3")].each_with_index do |file, ind|
+        Dir[File.join(index_dir, "**", "*.mp3")].each_with_index do |file, ind|
+          begin
             puts "#{ind + 1}. Indexing #{file}"
             Track.create :filename => file
+          rescue Exception => e
+            puts "Error: #{e}"
           end
-        rescue Exception => e
-          puts "Error: #{e}"
         end
       end
     end
