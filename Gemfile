@@ -8,20 +8,10 @@ gem 'thin'
 
 # Project requirements
 gem 'rake'
-gem 'rack-flash'
 
 # Component requirements
-gem 'dm-sqlite-adapter'
-gem 'dm-validations'
-gem 'dm-timestamps'
-gem 'dm-migrations'
-gem 'dm-constraints'
-gem 'dm-aggregates'
-gem 'dm-core'
-gem 'dm-serializer'
-gem 'data_mapper'
-gem 'haml'
 gem 'id3lib-ruby'
+gem 'json'
 
 # Test requirements
 group :test do
@@ -29,3 +19,4 @@ group :test do
   gem 'bacon'
   gem 'rack-test', :require => "rack/test"
 end
+

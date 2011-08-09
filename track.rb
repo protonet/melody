@@ -1,60 +1,33 @@
 class Track
-  include DataMapper::Resource
-
-  property :id,       Serial
-  property :filename, Text
-  property :artist,   String, :length => 255
-  property :album,    String, :length => 255
-  property :title,    String, :length => 255
 
   class << self
 
-    def index_and_cache
-      index
-      cache
-    end
-
     def index
-      current_ids = []
+      all_tracks = {}
       APP_CONFIG[:index_dirs].each do |index_dir|
         Dir[File.join(index_dir, "**", "*.mp3")].each_with_index do |file, ind|
           begin
-            track = Track.first_or_create(:filename => file)
-            puts "#{ind + 1}. Indexing #{file}"
-            tag = ID3Lib::Tag.new(file)
+            #puts "#{ind + 1}. Indexing #{file}"
+            tag = ID3Lib::Tag.new(filename)
+            track_info = {}
+            track_info['filename'] = clean_name(filename)
+            track_info['artist']   = clean_name(tag.artist)
+            track_info['album']    = clean_name(tag.album)
+            track_info['title']    = clean_name(tag.title)
 
-            track.update({
-              :filename => file,
-              :artist   => tag.artist,
-              :album    => tag.album,
-              :title    => tag.title,
-            })
-
-            current_ids << track.id
+            all_tracks[ind.to_s] = track_info
           rescue Exception => e
             puts "Error: #{e}"
           end
         end
       end
-      puts "CURRENT #{current_ids}"
-      tracks_to_delete = Track.all.map(&:id) - current_ids
-      puts "TRACKS TO DELETE #{tracks_to_delete}"
-      Track.all(:id => tracks_to_delete).destroy unless tracks_to_delete.empty?
+
+      File.open("#{APP_ROOT}/tmp/tracks.json",'w') { |file| file.write(all_tracks.to_json) }
     end
 
-    def cache
-      tmp_dir = "#{APP_ROOT}/tmp"
-
-      unless File.exist?(tmp_dir)
-        require 'fileutils'
-        FileUtils.mkdir_p tmp_dir
-      end
-
-      File.open("#{APP_ROOT}/tmp/tracks.json", 'w') do |file|
-        file.write Track.all.to_json
-      end
+    def clean_name(name)
+      name.gsub(/[^a-z0-9-_\.áéíóúüñÁÉÍÓÚÜÑ]/i,'')
     end
-
   end
-
 end
+
