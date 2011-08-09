@@ -23,18 +23,20 @@ class Track
             puts "Error: #{filename} #{track_info.inspect} #{e}"
           end
         end
-        puts "Indexed #{all_tracks.size} tracks"
       end
 
       File.open("#{APP_ROOT}/tmp/tracks.json",'w') { |file| file.write(all_tracks.to_json) }
+      puts "Indexed #{all_tracks.size} tracks"
     end
 
     def clean_name(name)
       unless name.nil?
-        name.force_encoding 'utf-8'
+        name.encode! 'utf-8'
         return name.gsub(/[^a-z0-9\-_\.\sáéíóúüñÁÉÍÓÚÜÑ]/i,'')
       end
-      return ''
+      ''
+    rescue 
+      ""
     end
 
     def tracks_hash
