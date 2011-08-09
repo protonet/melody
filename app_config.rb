@@ -1,3 +1,4 @@
 APP_CONFIG = {
-  :index_dirs => ['/home/philip/tmp'],
+  :index_dirs => [''],
 }
+

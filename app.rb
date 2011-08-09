@@ -1,6 +1,6 @@
 get '/listing' do
   filename = "#{APP_ROOT}/tmp/tracks.json"
-  Track.cache unless File.exists?(filename)
+  Track.index unless File.exists?(filename)
 
   if File.exist?(filename)
     send_file(filename,
@@ -14,11 +14,11 @@ end
 get "/:id" do
   pass unless params[:id]
 
-  if (track = Track.get(params[:id]))
-    send_file(track.filename,
+  if (track = Track.tracks_hash[params[:id]])
+    send_file(track['filename'],
       :type        => 'audio/mpeg',
       :disposition => 'inline',
-      :filename    => File.basename(track.filename)
+      :filename    => File.basename(track['filename'])
     )
   else
     # render not found
@@ -28,3 +28,4 @@ end
 get '/' do
   'Welcome to the Melody Music Server'
 end
+
