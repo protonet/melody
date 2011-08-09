@@ -63,6 +63,7 @@ GEM
     fastercsv (1.5.4)
     fastthread (1.0.7)
     haml (3.1.2)
+    id3lib-ruby (0.6.0)
     json (1.4.6)
     passenger (3.0.8)
       daemon_controller (>= 0.2.5)
@@ -99,6 +100,7 @@ DEPENDENCIES
   dm-timestamps
   dm-validations
   haml
+  id3lib-ruby
   passenger
   rack-flash
   rack-test

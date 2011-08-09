@@ -5,6 +5,7 @@ $: << "#{APP_ROOT}"
 require 'rubygems'
 require 'bundler/setup'
 require 'sinatra'
+require 'id3lib'
 require 'data_mapper'
 require 'db'
 require 'app_config'

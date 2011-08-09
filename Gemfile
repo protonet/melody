@@ -21,6 +21,7 @@ gem 'dm-core'
 gem 'dm-serializer'
 gem 'data_mapper'
 gem 'haml'
+gem 'id3lib-ruby'
 
 # Test requirements
 group :test do
