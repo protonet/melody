@@ -5,3 +5,4 @@ bin/*
 !vendor/gems/cache/
 .sass-cache/*vendor/ruby
 vendor/ruby
+*.db
