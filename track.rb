@@ -25,6 +25,7 @@ class Track
         end
       end
 
+      ensure_tmp
       File.open("#{APP_ROOT}/tmp/tracks.json",'w') { |file| file.write(all_tracks.to_json) }
       puts "Indexed #{all_tracks.size} tracks"
     end
@@ -35,7 +36,7 @@ class Track
         return name.gsub(/[^a-z0-9\-_\.\sáéíóúüñÁÉÍÓÚÜÑ]/i,'')
       end
       ''
-    rescue 
+    rescue
       ""
     end
 
@@ -51,6 +52,21 @@ class Track
         return CACHED_TRACKS[0]
       end
       return {}
+    end
+
+    def ensure_tmp
+      unless File.exist?(tmp_dir)
+        require 'fileutils'
+        FileUtils.mkdir_p (tmp_dir)
+      end
+    end
+
+    def tmp_dir
+      @tmp_dir ||= "#{APP_ROOT}/tmp"
+    end
+
+    def cache_file
+      @cache_file ||= "#{tmp_dir}/cache_file"
     end
   end
 end

@@ -15,13 +15,16 @@ get "/:id" do
   pass unless params[:id]
 
   if (track = Track.tracks_hash[params[:id]])
-    send_file(track['filename'],
-      :type        => 'audio/mpeg',
-      :disposition => 'inline',
-      :filename    => File.basename(track['filename'])
-    )
+    response[:x_accel_redirect]    = track['filename']
+    response[:content_type]        = 'audio/mpeg'
+    response[:content_disposition] = "attachment; filename=\"#{track['filename']}\""
+    # send_file(track['filename'],
+    #   :type        => 'audio/mpeg',
+    #   :disposition => 'inline',
+    #   :filename    => File.basename(track['filename'])
+    # )
   else
-    # render not found
+    # render 404
   end
 end
 
