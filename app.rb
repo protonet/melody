@@ -15,9 +15,9 @@ get "/:id" do
   pass unless params[:id]
 
   if (track = Track.tracks_hash[params[:id]])
-    response[:x_accel_redirect]    = track['filename']
-    response[:content_type]        = 'audio/mpeg'
-    response[:content_disposition] = "attachment; filename=\"#{track['filename']}\""
+    response["X-Accel-Redirect"]    = track['filename']
+    response["Contentr-type"]       = 'audio/mpeg'
+    response["Content-Disposition"] = "attachment; filename=\"#{File.basename(track['filename'])}\""
     # send_file(track['filename'],
     #   :type        => 'audio/mpeg',
     #   :disposition => 'inline',
