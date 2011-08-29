@@ -11,18 +11,20 @@ class Track
 
       all_tracks = {}
       APP_CONFIG[:index_dirs].each do |index_dir|
-        Dir[File.join(index_dir, "**", "*.mp3")].each_with_index do |filename, ind|
-          begin
-            #puts "#{ind + 1}. Indexing #{filename}"
-            tag = ID3Lib::Tag.new(filename)
-            track_info = {}
-            track_info['filename'] = filename
-            track_info['artist']   = clean_name(tag.artist)
-            track_info['album']    = clean_name(tag.album)
-            track_info['title']    = clean_name(tag.title)
-            all_tracks[(ind + 1).to_s] = track_info
-          rescue Exception => e
-            puts "Error: #{filename} #{track_info.inspect} #{e}"
+        if index_dir.strip != ''
+          Dir[File.join(index_dir, "**", "*.mp3")].each_with_index do |filename, ind|
+            begin
+              #puts "#{ind + 1}. Indexing #{filename}"
+              tag = ID3Lib::Tag.new(filename)
+              track_info = {}
+              track_info['filename'] = filename
+              track_info['artist']   = clean_name(tag.artist)
+              track_info['album']    = clean_name(tag.album)
+              track_info['title']    = clean_name(tag.title)
+              all_tracks[(ind + 1).to_s] = track_info
+            rescue Exception => e
+              puts "Error: #{filename} #{track_info.inspect} #{e}"
+            end
           end
         end
       end
