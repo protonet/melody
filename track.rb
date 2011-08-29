@@ -7,6 +7,8 @@ class Track
   class << self
 
     def index
+      require 'digest/md5'
+
       all_tracks = {}
       APP_CONFIG[:index_dirs].each do |index_dir|
         Dir[File.join(index_dir, "**", "*.mp3")].each_with_index do |filename, ind|
@@ -24,6 +26,9 @@ class Track
           end
         end
       end
+
+      all_tracks = all_tracks.sort{|a,b| a.last['filename'] <=> b.last['filename']}
+      all_tracks.insert(0, ['file_bases', APP_CONFIG[:index_dirs]])
 
       ensure_tmp
       File.open("#{APP_ROOT}/tmp/tracks.json",'w') { |file| file.write(all_tracks.to_json) }
