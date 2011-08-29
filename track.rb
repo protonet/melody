@@ -24,7 +24,7 @@ class Track
               track_info['track']    = tag.track
               track_info['md5_hash'] = Digest::MD5.hexdigest(filename)
 
-              all_tracks[track_info['md5_hash']] << track_info
+              all_tracks[track_info['md5_hash']] = track_info
 
               puts "#{all_tracks.size} tracks index" if (all_tracks.size % 100) == 0
             rescue Exception => e
