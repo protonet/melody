@@ -30,11 +30,12 @@ class Track
       end
 
       all_tracks = all_tracks.sort{|a,b| a.last['filename'] <=> b.last['filename']}
+      tracks_size = all_tracks.size
       all_tracks.insert(0, ['file_bases', APP_CONFIG[:index_dirs]])
 
       ensure_tmp
       File.open("#{APP_ROOT}/tmp/tracks.json",'w') { |file| file.write(all_tracks.to_json) }
-      puts "Indexed #{all_tracks.size} tracks"
+      puts "Indexed #{tracks_size} tracks"
     end
 
     def clean_name(name)
