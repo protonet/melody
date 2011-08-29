@@ -21,7 +21,10 @@ class Track
               track_info['artist']   = clean_name(tag.artist)
               track_info['album']    = clean_name(tag.album)
               track_info['title']    = clean_name(tag.title)
-              all_tracks[(ind + 1).to_s] = track_info
+              track_info['track']    = tag.track
+              track_info['md5_hash'] = Digest::MD5.hexdigest(filename)
+
+              all_tracks[track_info['md5_hash']] << track_info
             rescue Exception => e
               puts "Error: #{filename} #{track_info.inspect} #{e}"
             end
@@ -29,11 +32,13 @@ class Track
         end
       end
 
+      puts "Sorting"
       all_tracks = all_tracks.sort{|a,b| a.last['filename'] <=> b.last['filename']}
       tracks_size = all_tracks.size
       all_tracks.insert(0, ['file_bases', APP_CONFIG[:index_dirs]])
 
       ensure_tmp
+      puts "Writing to file"
       File.open("#{APP_ROOT}/tmp/tracks.json",'w') { |file| file.write(all_tracks.to_json) }
       puts "Indexed #{tracks_size} tracks"
     end
