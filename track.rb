@@ -21,7 +21,7 @@ class Track
               track_info['artist']   = clean_name(tag.artist)
               track_info['album']    = clean_name(tag.album)
               track_info['title']    = clean_name(tag.title)
-              track_info['track']    = tag.track
+              track_info['track']    = clean_name(tag.track)
               track_info['md5_hash'] = Digest::MD5.hexdigest(filename)
 
               all_tracks[track_info['md5_hash']] = track_info
