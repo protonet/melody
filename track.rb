@@ -15,13 +15,17 @@ class Track
           Dir[File.join(index_dir, "**", "*.mp3")].each_with_index do |filename, ind|
             begin
               #puts "#{ind + 1}. Indexing #{filename}"
-              tag = ID3Lib::Tag.new(filename)
               track_info = {}
               track_info['filename'] = filename
-              track_info['artist']   = clean_name(tag.artist)
-              track_info['album']    = clean_name(tag.album)
-              track_info['title']    = clean_name(tag.title)
-              track_info['track']    = clean_name(tag.track)
+
+              Mp3Info.open(filename) do |mp3_file|
+                tag = mp3_file.tag
+                track_info['artist']   = clean_name(tag.artist)
+                track_info['album']    = clean_name(tag.album)
+                track_info['title']    = clean_name(tag.title)
+                track_info['track']    = clean_name(tag.tracknum)
+              end
+
               track_info['md5_hash'] = Digest::MD5.hexdigest(filename)
 
               all_tracks[track_info['md5_hash']] = track_info
@@ -34,7 +38,7 @@ class Track
         end
       end
 
-      all_tracks["melody_music_bases"] = ['file_bases', APP_CONFIG[:index_dirs]]
+      all_tracks["music_bases"] = ['file_bases', APP_CONFIG[:index_dirs]]
 
       ensure_tmp
       puts "Writing to file"

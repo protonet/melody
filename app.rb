@@ -15,7 +15,7 @@ get "/:id" do
   pass unless params[:id]
 
   if (track = Track.tracks_hash[params[:id]])
-    if params[:local] != 'true'
+    if params[:nginx] == 'true'
       response["X-Accel-Redirect"]    = track['filename']
       response["Contentr-type"]       = 'audio/mpeg'
       response["Content-Disposition"] = "attachment; filename=\"#{File.basename(track['filename'])}\""

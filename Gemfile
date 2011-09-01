@@ -10,8 +10,9 @@ gem 'thin'
 gem 'rake'
 
 # Component requirements
-gem 'id3lib-ruby'
+#gem 'id3lib-ruby'
 gem 'json'
+gem 'ruby-mp3info'
 
 # Test requirements
 group :test do

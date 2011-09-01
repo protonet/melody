@@ -14,7 +14,6 @@ GEM
     daemons (1.1.4)
     eventmachine (0.12.10)
     fastthread (1.0.7)
-    id3lib-ruby (0.6.0)
     json (1.5.3)
     passenger (3.0.8)
       daemon_controller (>= 0.2.5)
@@ -26,6 +25,7 @@ GEM
       rack (>= 1.0)
     rake (0.9.2)
     rr (1.0.3)
+    ruby-mp3info (0.6.15)
     thin (1.2.11)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -37,11 +37,11 @@ PLATFORMS
 
 DEPENDENCIES
   bacon
-  id3lib-ruby
   json
   passenger
   rack-test
   rake
   rr
+  ruby-mp3info
   sinatra!
   thin
