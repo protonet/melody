@@ -20,10 +20,11 @@ class Track
 
               Mp3Info.open(filename) do |mp3_file|
                 tag = mp3_file.tag
-                track_info['artist']   = clean_name(tag.artist)
-                track_info['album']    = clean_name(tag.album)
-                track_info['title']    = clean_name(tag.title)
-                track_info['track']    = clean_name(tag.tracknum)
+                track_info['artist'] = clean_name(tag['artist'])
+                track_info['album']  = clean_name(tag['album'])
+                track_info['title']  = clean_name(tag['title'])
+                track_info['genres'] = clean_name(tag['genre_s'])
+                track_info['track']  = tag['tracknum'].to_s
               end
 
               track_info['md5_hash'] = Digest::MD5.hexdigest(filename)
