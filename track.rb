@@ -18,18 +18,22 @@ class Track
               track_info = {}
               track_info['filename'] = filename
 
-              Mp3Info.open(filename) do |mp3_file|
-                tag = mp3_file.tag
-                track_info['artist'] = clean_name(tag['artist'])
-                track_info['album']  = clean_name(tag['album'])
-                track_info['title']  = clean_name(tag['title'])
-                track_info['genres'] = clean_name(tag['genre_s'])
-                track_info['track']  = tag['tracknum'].to_s
+              begin
+                Mp3Info.open(filename) do |mp3_file|
+                  tag = mp3_file.tag
+                  track_info['artist'] = clean_name(tag['artist'])
+                  track_info['album']  = clean_name(tag['album'])
+                  track_info['title']  = clean_name(tag['title'])
+                  track_info['genres'] = clean_name(tag['genre_s'])
+                  track_info['track']  = tag['tracknum'].to_s
+                end
+              rescue Exception => err
+                puts "Error: #{filename} #{track_info.inspect} #{err}"
               end
 
-              track_info['md5_hash'] = Digest::MD5.hexdigest(filename)
+              track_info['id'] = Digest::MD5.hexdigest(filename)
 
-              all_tracks[track_info['md5_hash']] = track_info
+              all_tracks[track_info['id']] = track_info
 
               puts "#{all_tracks.size} tracks indexed" if (all_tracks.size % 100) == 0
             rescue Exception => e
@@ -39,7 +43,7 @@ class Track
         end
       end
 
-      all_tracks["music_bases"] = ['file_bases', APP_CONFIG[:index_dirs]]
+      all_tracks["music_bases"] = APP_CONFIG[:index_dirs]
 
       ensure_tmp
       puts "Writing to file"
